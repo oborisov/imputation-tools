@@ -1,0 +1,5 @@
+{
+    "bfile": ["data/sim1_GSA"],
+    "chromosome": ["22"],
+    "BCFTOOLS_PLUGINS": ["/opt/conda/envs/snakemake/libexec/bcftools"]
+}

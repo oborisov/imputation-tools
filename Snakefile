@@ -19,7 +19,7 @@ rule plink_to_vcf:
         "{bfile}_chr{chr}.vcf"
     shell:
         '''
-        plink2 --bed {input.bed} --bim {input.bim} --fam {input.fam} --chr {wildcards.chr} \
+        {plink2} --bed {input.bed} --bim {input.bim} --fam {input.fam} --chr {wildcards.chr} \
         --recode vcf --out {params.prefix}
         '''
 
@@ -87,7 +87,7 @@ rule phasing:
         prefix="{bfile}_chr{chr}_ref_phased"
     shell:
         '''
-        eagle \
+        {eagle} \
         --geneticMapFile {input.genetic_map_hg19} \
         --vcfTarget {input.vcfTarget} \
         --vcfRef app/ALL.chr{wildcards.chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
@@ -105,7 +105,7 @@ rule imputation:
         prefix="{bfile}_chr{chr}_ref_phased_imputed"
     shell:
         '''
-        Minimac3 \
+        {Minimac3} \
         --refHaps app/ALL.chr{wildcards.chr}.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz \
         --haps {input.haps} \
         --noPhoneHome --lowMemory \
@@ -121,7 +121,7 @@ rule glm:
         prefix="{bfile}_chr{chr}_ref_phased_imputed.dose.vcf.gz_glm"
     shell:
         '''
-        plink2 --vcf {input} dosage=DS \
+        {plink2} --vcf {input} dosage=DS \
         --id-delim _ \
         --glm sex hide-covar cols=chrom,pos,ref,alt,ax,test,nobs,orbeta,se,tz,p allow-no-covars \
         --update-sex {wildcards.bfile}.fam col-num=5 \

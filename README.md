@@ -6,9 +6,11 @@ A set of tools to impute high throughput genotyping data. Data in [plink binary 
 4. Perform standard association test with [plink2 --glm](https://www.cog-genomics.org/plink/2.0/assoc#glm)
 5. Visualize the GWAS results using [qqman](https://cran.r-project.org/web/packages/qqman/index.html)
 
-## Installation
-*imputation-tools* was tested on Ubuntu 18.04.4 LTS. The running time for chromosome 22 of the included test data takes approximately 90 minutes (2.50GHz CPU, 1 thread). *imputation-tools* requires a number of packages that can be installed using conda ([Miniconda 3](https://docs.conda.io/en/latest/miniconda.html) should be sufficient).
+## Prerequisites
+*imputation-tools* was tested on Ubuntu 18.04.4 LTS. The running time for chromosome 22 of the included test data takes approximately 90 minutes (2.50GHz CPU, 1 thread).  
+*imputation-tools* requires a number of packages that can be installed using conda ([Miniconda 3](https://docs.conda.io/en/latest/miniconda.html) should be sufficient).  
 
+## Installation
 Clone repoitory, unpack files, install environment and required packages, activate environment:
 ```
 git clone https://github.com/oborisov/imputation-tools.git  
@@ -22,13 +24,6 @@ conda activate imputation-tools
 ```
 snakemake --config chromosome=22 bfile=data/sim1_GSA BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
 ```
-While running *imputation-tools* downloads required files for QC and imputation:
-1. [fasta file](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/chromosomes/) for the analyzed chromosome to align the data according to reference strand  
-2. [reference vcf file](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) to phase and impute the analyzed chromosome  
-
-## Output
-*imputation-tools* outputs Manhattan plot for the analyzed chromosome:
-![chr22_example](data/chr22.jpeg)
 
 ### Available options
 The following options can be passed to the *imputation-tools* via `--config` command:  
@@ -40,6 +35,14 @@ chromosome=22`
 bfile=data/sim1_GSA
 BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
 ```  
+
+While running *imputation-tools* downloads required files for QC and imputation:
+1. [fasta file](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/chromosomes/) for the analyzed chromosome to align the data according to reference strand  
+2. [reference vcf file](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) to phase and impute the analyzed chromosome  
+
+## Output
+*imputation-tools* outputs Manhattan plot for the analyzed chromosome:
+![chr22_example](data/chr22.jpeg)
 
 ### used software
 snakemake: ```snakemake.readthedocs.io/```  

@@ -1,5 +1,8 @@
 configfile: "config.json"
 BCFTOOLS_PLUGINS=config["BCFTOOLS_PLUGINS"]
+plink2=config["plink2"]
+eagle=config["eagle"]
+Minimac3=config["Minimac3"]
 
 rule all:
     input:

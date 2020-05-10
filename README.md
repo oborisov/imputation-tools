@@ -7,9 +7,9 @@ A set of tools to impute high throughput genotyping data. Data in [plink binary 
 5. Visualize the GWAS results using [qqman](https://cran.r-project.org/web/packages/qqman/index.html)
 
 ## Installation
-*imputation-tools* was tested on Ubuntu 18.04.4 LTS. Using 2.50GHz CPU (1 thread) the whole analysis for chromosome 22 takes approximately 90 minutes. *imputation-tools* requires packages that can be installed using conda ([a short guide to install Miniconda 3](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniconda-3))
+*imputation-tools* was tested on Ubuntu 18.04.4 LTS. The running time for chromosome 22 of the included test data takes approximately 90 minutes (2.50GHz CPU, 1 thread). *imputation-tools* requires packages that can be installed using conda ([Miniconda 3](https://docs.conda.io/en/latest/miniconda.html) should be sufficient).
 
-clone repoitory, unpack files, install environment and required packages, activate environment:
+Clone repoitory, unpack files, install environment and required packages, activate environment:
 ```
 git clone https://github.com/oborisov/imputation-tools.git  
 cd imputation-tools
@@ -30,8 +30,8 @@ Significant associations were simulated for the test data (`data/sim1_GSA`) at t
 ![chr22](data/chr22.jpeg)
 
 ### Available options
-The following keys set the options for the *imputation-tools*:  
-chromosome to be imputed: ```--config chromosome=22```  
+The following options can be passed to the *imputation-tools*:  
+chromosome: ```--config chromosome=22```  
 path to [binary plink file](https://samtools.github.io/bcftools/howtos/plugin.fixref.html) prefix: ```--config bfile=data/sim1_GSA```  
 path to [BCFTOOLS_PLUGINS](https://samtools.github.io/bcftools/howtos/plugins.html), should be determined automatically based on the bcftools installation via conda: ```--config BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')```  
 

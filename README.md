@@ -9,10 +9,14 @@ A set of tools to impute high throughput genotyping data. Data in [plink binary 
 ## installation
 *imputation-tools* was tested on Ubuntu 18.04.4 LTS. Using 2.50GHz CPU (1 thread) the whole analysis for chromosome 22 takes approximately 90 minutes. *imputation-tools* requires packages that can be installed using conda ([a short guide to install conda](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniconda-3))
 
-clone repoitory: ```git clone https://github.com/oborisov/imputation-tools.git```  
-unpack files: ```gunzip imputation-tools/data/*; gunzip imputation-tools/app/*```
-install environment and required packages: ```conda env create --file imputation-tools.yml```  
-activate environment ```conda activate imputation-tools```
+clone repoitory, unpack files, install environment and required packages, activate environment:
+```
+git clone https://github.com/oborisov/imputation-tools.git  
+cd imputation-tools
+gunzip data/* app/*
+conda env create --file imputation-tools.yml  
+conda activate imputation-tools
+```
 
 ## Running
 ```

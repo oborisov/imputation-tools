@@ -1,0 +1,11 @@
+name: imputation-tools
+channels:
+- bioconda
+dependencies:
+- snakemake
+- bcftools
+- samtools
+- tabix
+- r-base
+- r-data.table
+- r-qqman

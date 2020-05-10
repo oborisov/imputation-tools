@@ -20,7 +20,7 @@ conda activate imputation-tools
 
 ## Running
 ```
-snakemake --config chromosome=22 --config bfile=data/sim1_GSA --config BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
+snakemake --config chromosome=22 bfile=data/sim1_GSA BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
 ```
 While running *imputation-tools* downloads required files for QC and imputation:
 1. [fasta file](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/chromosomes/) for the analyzed chromosome to align the data according to reference strand  
@@ -31,10 +31,15 @@ While running *imputation-tools* downloads required files for QC and imputation:
 ![chr22_example](data/chr22.jpeg)
 
 ### Available options
-The following options can be passed to the *imputation-tools*:  
-chromosome: ```--config chromosome=22```  
-path to [binary plink file](https://samtools.github.io/bcftools/howtos/plugin.fixref.html) prefix: ```--config bfile=data/sim1_GSA```  
-path to [BCFTOOLS_PLUGINS](https://samtools.github.io/bcftools/howtos/plugins.html), should be determined automatically based on the bcftools installation via conda: ```--config BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')```  
+The following options can be passed to the *imputation-tools* via `--config` command:  
+1. chromosome
+2. path to [binary plink file](https://samtools.github.io/bcftools/howtos/plugin.fixref.html) prefix
+3. path to [BCFTOOLS_PLUGINS](https://samtools.github.io/bcftools/howtos/plugins.html), should be determined automatically based on the bcftools installation via conda
+```
+chromosome=22`
+bfile=data/sim1_GSA
+BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
+```  
 
 ### used software
 snakemake: ```snakemake.readthedocs.io/```  

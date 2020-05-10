@@ -7,21 +7,19 @@ A set of tools to impute high throughput genotyping data. Data in [plink binary 
 5. Visualize the GWAS results using [qqman](https://cran.r-project.org/web/packages/qqman/index.html)
 
 ## installation
-*imputation-tools* was tested on Ubuntu 18.04.4 LTS. Using 2.50GHz CPU (1 thread) the whole analysis for chromosome 22 takes approximately 90 minutes. *imputation-tools* requires packages that can be installed using conda ([a short guide to install conda](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniconda-3))
+*imputation-tools* was tested on Ubuntu 18.04.4 LTS. Using 2.50GHz CPU (1 thread) the whole analysis for chromosome 22 takes approximately 90 minutes. *imputation-tools* requires packages that can be installed using conda ([a short guide to install Miniconda 3](https://snakemake.readthedocs.io/en/stable/tutorial/setup.html#step-1-installing-miniconda-3))
 
 clone repoitory, unpack files, install environment and required packages, activate environment:
 ```
 git clone https://github.com/oborisov/imputation-tools.git  
 cd imputation-tools
 gunzip data/* app/*
-conda env create --file imputation-tools.yml  
+conda env create --file imputation-tools_env.yml  
 conda activate imputation-tools
 ```
 
 ## Running
 ```
-/home/user/miniconda3/envs/imputation-tools/libexec/bcftools/
-cd imputation-tools
 snakemake --config chromosome=22 --config bfile=data/sim1_GSA --config BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
 ```
 The following keys set the options for the *imputation-tools*:

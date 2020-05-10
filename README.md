@@ -14,7 +14,7 @@ Clone repoitory, unpack files, install environment and required packages, activa
 git clone https://github.com/oborisov/imputation-tools.git  
 cd imputation-tools
 gunzip data/* app/*
-conda env create --file imputation-tools_env.yml  
+conda env create --file environment.yml  
 conda activate imputation-tools
 ```
 

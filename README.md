@@ -7,7 +7,7 @@ A set of tools to impute high throughput genotyping data. Data in [plink binary 
 5. Visualize the GWAS results using [qqman](https://cran.r-project.org/web/packages/qqman/index.html)
 
 ## Installation
-*imputation-tools* was tested on Ubuntu 18.04.4 LTS. The running time for chromosome 22 of the included test data takes approximately 90 minutes (2.50GHz CPU, 1 thread). *imputation-tools* requires packages that can be installed using conda ([Miniconda 3](https://docs.conda.io/en/latest/miniconda.html) should be sufficient).
+*imputation-tools* was tested on Ubuntu 18.04.4 LTS. The running time for chromosome 22 of the included test data takes approximately 90 minutes (2.50GHz CPU, 1 thread). *imputation-tools* requires a number of packages that can be installed using conda ([Miniconda 3](https://docs.conda.io/en/latest/miniconda.html) should be sufficient).
 
 Clone repoitory, unpack files, install environment and required packages, activate environment:
 ```
@@ -45,7 +45,7 @@ tabix: ```http://www.htslib.org/doc/tabix.html```
 Eagle2: ```https://data.broadinstitute.org/alkesgroup/Eagle/```  
 Minimac3: ```https://genome.sph.umich.edu/wiki/Minimac3```  
 
-
+---
 ## Docker (under development)
 pull latest version of container: ```docker pull olegborisov/imputation-tools:latest```  
 run application: ```docker run olegborisov/imputation-tools conda run -n snakemake snakemake```

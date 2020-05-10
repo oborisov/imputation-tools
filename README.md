@@ -22,12 +22,13 @@ conda activate imputation-tools
 ```
 snakemake --config chromosome=22 --config bfile=data/sim1_GSA --config BCFTOOLS_PLUGINS=$(which bcftools | sed 's/bin\/bcftools/libexec\/bcftools/')
 ```
-While running *imputation-tools* will download required files for QC and imputation:
+While running *imputation-tools* downloads required files for QC and imputation:
 1. [fasta file](http://hgdownload.cse.ucsc.edu/goldenpath/hg19/chromosomes/) for the analyzed chromosome to align the data according to reference strand  
 2. [reference vcf file](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) to phase and impute the analyzed chromosome  
 
-Significant associations were simulated for the test data (`data/sim1_GSA`) at the chromosome 22:  
-![chr22](data/chr22.jpeg)
+## Output
+*imputation-tools* outputs summary statistics and Manhattan plot for the analyzed chromosome:
+![chr22_example](data/chr22.jpeg)
 
 ### Available options
 The following options can be passed to the *imputation-tools*:  

@@ -27,7 +27,7 @@ While running *imputation-tools* downloads required files for QC and imputation:
 2. [reference vcf file](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) to phase and impute the analyzed chromosome  
 
 ## Output
-*imputation-tools* outputs summary statistics and Manhattan plot for the analyzed chromosome:
+*imputation-tools* outputs Manhattan plot for the analyzed chromosome:
 ![chr22_example](data/chr22.jpeg)
 
 ### Available options
